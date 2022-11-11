@@ -1,16 +1,35 @@
 <!DOCTYPE html>
-<html>
-    <head><title>JavaScript Button Example</title></head>
+<html lang="en_us">
+<head><title>JavaScript Button Example</title></head>
 
-    <body>
-    <button id='squeeze'>Squeeze me</button>
-    
-    <script>
-     let button = document.getElementById("squeeze");
-     function shout(){
-	     alert("... and I squeak");
-     }
-     button.addEventListener("click", shout);
-    </script>
-    </body>
+<body>
+<button id='release_it'>Morb</button>
+<br/>
+
+<div id="frame">
+</div>
+
+<script>
+    let button = document.getElementById("release_it");
+
+    function add_game() {
+        button.remove()
+        let iframe = Object.assign(
+            document.createElement('iframe'),
+            {
+                src: "https://scratch.mit.edu/projects/10128407/embed",
+                allowTransparency: "true",
+                width: "485",
+                height: "402",
+                frameBorder: "0",
+                scrolling: "no",
+                allowFullScreen: true
+            }
+        );
+        document.getElementById('frame').insertBefore(iframe, null);
+    }
+
+    button.addEventListener("click", add_game);
+</script>
+</body>
 </html>
